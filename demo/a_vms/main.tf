@@ -1,7 +1,9 @@
 resource "google_compute_instance" "vm" {
+  count = 8
   project = "mdifilippo-terraform-demo"
-  name = "testing"
-  machine_type = "n2-custom-2-4096"
+  name = "testing-${count.index}"
+  # machine_type = "n2-custom-2-4096"
+  machine_type = "e2-standard-2"
 
   zone = "us-east4-a"
 
